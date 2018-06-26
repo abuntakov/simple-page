@@ -1,5 +1,6 @@
 apiVersion: apps/v1beta2
 kind: Deployment
+namespace:  {{ .Values.namespace }}
 metadata:
   name: {{ template "simple-page.fullname" . }}
   labels:

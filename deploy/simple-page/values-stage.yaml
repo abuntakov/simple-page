@@ -26,7 +26,7 @@ ingress:
   hosts:
     - sp-stage.buntakov.ru
   tls:
-   - secretName: sp-stage-buntakov-ru-tls
+   - secretName: simple-page-tls
      hosts:
        - sp-stage.buntakov.ru
 

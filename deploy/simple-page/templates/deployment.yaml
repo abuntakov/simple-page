@@ -1,24 +1,24 @@
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  name: {{ template "simple-page.fullname" . }}
+  name: "{{ template "simple-page.fullname" . }}-{{ .Values.namespace }}"
   namespace:  {{ .Values.namespace }}
   labels:
     app: {{ template "simple-page.name" . }}
     chart: {{ template "simple-page.chart" . }}
-    release: {{ .Release.Name }}
+    release: "{{ .Release.Name }}-{{ .Values.namespace }}"
     heritage: {{ .Release.Service }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       app: {{ template "simple-page.name" . }}
-      release: {{ .Release.Name }}
+      release: "{{ .Release.Name }}-{{ .Values.namespace }}"
   template:
     metadata:
       labels:
         app: {{ template "simple-page.name" . }}
-        release: {{ .Release.Name }}
+        release: "{{ .Release.Name }}-{{ .Values.namespace }}"
     spec:
       imagePullSecrets:
         - name: docker-registry-secret

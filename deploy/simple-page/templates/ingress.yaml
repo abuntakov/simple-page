@@ -9,7 +9,7 @@ metadata:
   labels:
     app: {{ template "simple-page.name" . }}
     chart: {{ template "simple-page.chart" . }}
-    release: {{ .Release.Name }}
+    release: "{{ .Release.Name }}-{{ .Values.namespace }}"
     heritage: {{ .Release.Service }}
 {{- with .Values.ingress.annotations }}
   annotations:
